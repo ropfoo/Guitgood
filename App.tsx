@@ -8,8 +8,9 @@
  * @format
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -19,13 +20,8 @@ import {
   View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import Layout from './src/components/Layout/Layout';
 import TriadQuiz from './src/components/Quiz/TraidQuiz/TriadQuiz';
 
 const App = () => {
@@ -36,18 +32,10 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}
-        />
-        <Text>Hello React Native Hello</Text>
+    <SafeAreaView>
+      <Layout>
         <TriadQuiz />
-      </ScrollView>
+      </Layout>
     </SafeAreaView>
   );
 };

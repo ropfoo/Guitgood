@@ -1,9 +1,20 @@
 import React from 'react';
-import {Pressable, Text} from 'react-native';
+import {Pressable, Text, TextStyle, View, ViewStyle} from 'react-native';
 import {
   ScaleInputAction,
   ScaleInputReducer,
 } from '../../Inputs/ScaleInput/ScaleInputReducer';
+
+const viewStyle: ViewStyle = {
+  padding: 10,
+  justifyContent: 'center',
+  alignItems: 'center',
+};
+
+const textStyle: TextStyle = {
+  fontSize: 20,
+  fontWeight: 'bold',
+};
 
 interface AnswerOptionProps {
   showInput: React.Dispatch<ScaleInputReducer>;
@@ -21,6 +32,8 @@ const AnswerOption: React.FC<AnswerOptionProps> = ({
       style={{
         backgroundColor:
           noteInput.target === target ? 'lightgreen' : 'lightgrey',
+        marginBottom: 5,
+        width: 50,
       }}
       onPress={() =>
         showInput({
@@ -28,7 +41,9 @@ const AnswerOption: React.FC<AnswerOptionProps> = ({
           payload: {...noteInput, target},
         })
       }>
-      <Text>{noteInput.values[target]}</Text>
+      <View style={viewStyle}>
+        <Text style={textStyle}>{noteInput.values[target]}</Text>
+      </View>
     </Pressable>
   );
 };

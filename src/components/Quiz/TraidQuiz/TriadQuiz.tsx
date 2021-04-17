@@ -1,5 +1,5 @@
 import React, {useReducer, useState} from 'react';
-import {Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import ScaleInput from '../../Inputs/ScaleInput/ScaleInput';
 import {
   initialScaleInputState,
@@ -8,6 +8,17 @@ import {
 import {useRandomNote} from '../../../hooks/useRandomNote';
 import {notes} from '../_data/notes';
 import AnswerOption from './AnswerOption';
+
+const style = StyleSheet.create({
+  questionWrapper: {
+    justifyContent: 'space-between',
+    height: '100%',
+  },
+  rootNote: {
+    fontSize: 100,
+    fontWeight: 'bold',
+  },
+});
 
 const TriadQuiz: React.FC = () => {
   const currentNote = useRandomNote(notes);
@@ -18,14 +29,17 @@ const TriadQuiz: React.FC = () => {
   );
 
   return (
-    <View>
-      <Text>{currentNote.name}</Text>
-      <AnswerOption showInput={dispatch} target={0} noteInput={noteInput} />
-      <AnswerOption showInput={dispatch} target={1} noteInput={noteInput} />
-      <AnswerOption showInput={dispatch} target={2} noteInput={noteInput} />
-      {noteInput.active && (
-        <ScaleInput setNoteValue={dispatch} target={noteInput.target} />
-      )}
+    <View style={style.questionWrapper}>
+      <View>
+        <Text style={style.rootNote}>{currentNote.name}</Text>
+        <AnswerOption showInput={dispatch} target={0} noteInput={noteInput} />
+        <AnswerOption showInput={dispatch} target={1} noteInput={noteInput} />
+      </View>
+      <ScaleInput
+        setNoteValue={dispatch}
+        target={noteInput.target}
+        isActive={noteInput.active}
+      />
     </View>
   );
 };
