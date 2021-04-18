@@ -1,4 +1,4 @@
-import React, {useReducer, useState} from 'react';
+import React, {useReducer} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import ScaleInput from '../../Inputs/ScaleInput/ScaleInput';
 import {
@@ -34,7 +34,7 @@ const style = StyleSheet.create({
 });
 
 const Question: React.FC = () => {
-  const currentNote = useRandomNote(notes);
+  const {currentNote, generateRandomNote} = useRandomNote(notes);
   const [noteInput, dispatch] = useReducer(
     scaleInputReducer,
     initialScaleInputState,
@@ -47,6 +47,12 @@ const Question: React.FC = () => {
       type: ScaleInputAction.SHOW_WRONG_ANSWERS,
       payload: {...noteInput, answerTypes},
     });
+    const allResultsCorrect = answerTypes.every(
+      answerType => answerType.result === true,
+    );
+    if (allResultsCorrect) {
+      generateRandomNote();
+    }
   };
 
   return (
