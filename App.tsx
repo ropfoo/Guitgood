@@ -22,7 +22,7 @@ import {
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Layout from './src/components/Layout/Layout';
-import TriadQuiz from './src/components/Quiz/TraidQuiz/TriadQuiz';
+import Question from './src/components/Quiz/TraidQuiz/Question';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -34,7 +34,7 @@ const App = () => {
   return (
     <SafeAreaView>
       <Layout>
-        <TriadQuiz />
+        <Question />
       </Layout>
     </SafeAreaView>
   );

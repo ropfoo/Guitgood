@@ -3,4 +3,4 @@ export interface note {
   triads: string[];
 }
 
-export const notes: note[] = [{name: 'C', triads: ['C', 'E', 'G']}];
+export const notes: note[] = [{name: 'C', triads: ['E', 'G']}];

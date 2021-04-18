@@ -1,14 +1,28 @@
+import { AnswerType } from "../../../hooks/useResultCheck";
+
+export enum AnswerState {
+    DEFAULT,
+    ACTIVE,
+    WRONG
+}
+
+export interface ScaleInputValue{
+    name: string
+    answerState: AnswerState
+}
+
 export interface ScaleInputState {
   active: boolean;
   inputValue: string;
   target: number;
-  values: string[];
+  values: ScaleInputValue[];
 }
 
 export interface ScaleInputPayload {
   active: boolean;
   inputValue: string;
   target: number;
+  answerTypes?: AnswerType[]
 }
 
 export interface ScaleInputReducer {
@@ -27,6 +41,7 @@ export enum ScaleInputAction {
   UPDATE_VALUE,
   SHOW_INPUT,
   HIDE_INPUT,
+  SHOW_WRONG_ANSWERS
 }
 
 export function scaleInputReducer(
@@ -36,7 +51,7 @@ export function scaleInputReducer(
   switch (action.type) {
     case ScaleInputAction.UPDATE_VALUE:
       if (action.payload) {
-        state.values[action.payload.target] = action.payload.inputValue;
+        state.values[action.payload.target] = {name:action.payload.inputValue, answerState: AnswerState.DEFAULT};
         return {...state, inputValue: action.payload.inputValue};
       } else {
         return state;
@@ -45,6 +60,21 @@ export function scaleInputReducer(
     if (action.payload)
         return {...state, active: true, target: action.payload?.target};
     case ScaleInputAction.HIDE_INPUT:
+      return {...state, active: false};
+    case ScaleInputAction.SHOW_WRONG_ANSWERS:
+        state.values.forEach((value, index) => {
+            const isCorrect = action.payload?.answerTypes?.some(answerType => {
+                if(answerType.answerIndex === index){
+                    return answerType.result
+                }
+            })
+         if(!isCorrect) {
+             value.answerState = AnswerState.WRONG  
+            } else {
+             value.answerState = AnswerState.ACTIVE  
+
+         }
+        })
       return {...state, active: false};
     default:
       return state;

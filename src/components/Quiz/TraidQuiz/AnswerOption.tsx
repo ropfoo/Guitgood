@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Pressable, Text, TextStyle, View, ViewStyle} from 'react-native';
 import {
+    AnswerState,
   ScaleInputAction,
   ScaleInputReducer,
+  ScaleInputState,
 } from '../../Inputs/ScaleInput/ScaleInputReducer';
 
 const viewStyle: ViewStyle = {
@@ -19,7 +21,7 @@ const textStyle: TextStyle = {
 interface AnswerOptionProps {
   showInput: React.Dispatch<ScaleInputReducer>;
   target: number;
-  noteInput: any;
+  noteInput: ScaleInputState;
 }
 
 const AnswerOption: React.FC<AnswerOptionProps> = ({
@@ -27,11 +29,24 @@ const AnswerOption: React.FC<AnswerOptionProps> = ({
   target,
   noteInput,
 }) => {
+    const targetNote = noteInput.values[target]
+    const getBackground = () => {
+        switch (targetNote.answerState) {
+            case AnswerState.DEFAULT:
+                return 'lightgrey'
+            case AnswerState.ACTIVE:
+                return 'lightgreen'
+            case AnswerState.WRONG:
+                return 'coral'
+        
+            default:
+                return 'lightgrey'
+        }
+    }
   return (
     <Pressable
       style={{
-        backgroundColor:
-          noteInput.target === target ? 'lightgreen' : 'lightgrey',
+        backgroundColor:getBackground(),
         marginBottom: 5,
         width: 50,
       }}
@@ -42,7 +57,7 @@ const AnswerOption: React.FC<AnswerOptionProps> = ({
         })
       }>
       <View style={viewStyle}>
-        <Text style={textStyle}>{noteInput.values[target]}</Text>
+        <Text style={textStyle}>{noteInput.values[target]?.name}</Text>
       </View>
     </Pressable>
   );

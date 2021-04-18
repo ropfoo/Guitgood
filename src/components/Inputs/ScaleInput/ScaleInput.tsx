@@ -1,31 +1,24 @@
 import React, {useEffect, useRef} from 'react';
 import {Button, Pressable, StyleSheet, Text, View} from 'react-native';
 import {scale, scaleFlat, scaleSharp} from './scaleInput.data';
-import {ScaleInputAction, ScaleInputReducer} from './ScaleInputReducer';
+import {
+  //   AnswerState,
+  ScaleInputAction,
+  ScaleInputReducer,
+} from './ScaleInputReducer';
 import RBSheet from 'react-native-raw-bottom-sheet';
+import ScaleInputKey from './ScaleInputKey';
 
 const style = StyleSheet.create({
   inputContainer: {
-    padding: 10,
     backgroundColor: 'lightgrey',
     borderRadius: 10,
+    padding: 7,
   },
   inputRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     height: 'auto',
-  },
-  inputKeyText: {
-    fontSize: 25,
-    color: 'white',
-    backgroundColor: 'gray',
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 50,
-  },
-  inputKey: {
-    backgroundColor: 'gray',
-    borderRadius: 20,
   },
 });
 
@@ -46,54 +39,45 @@ const ScaleInput: React.FC<ScaleInputProps> = ({
 
   const closeSheet = () => setNoteValue({type: ScaleInputAction.HIDE_INPUT});
 
-  const displayContent = () => (
-    <View style={style.inputContainer}>
-      <View style={style.inputRow}>
-        {scale.map(note => (
-          <Pressable
-            key={note}
-            onPress={() =>
-              setNoteValue({
-                type: ScaleInputAction.UPDATE_VALUE,
-                payload: {active: false, inputValue: note, target},
-              })
-            }>
-            <View style={style.inputKey}>
-              <Text style={style.inputKeyText}>{note}</Text>
-            </View>
-          </Pressable>
-        ))}
+  const displayContent = () => {
+    const setNote = (note: string) =>
+      setNoteValue({
+        type: ScaleInputAction.UPDATE_VALUE,
+        payload: {active: false, inputValue: note, target},
+      });
+
+    return (
+      <View style={style.inputContainer}>
+        <View style={style.inputRow}>
+          {scale.map(note => (
+            <ScaleInputKey
+              key={note}
+              note={note}
+              setNoteCallback={() => setNote(note)}
+            />
+          ))}
+        </View>
+        <View style={style.inputRow}>
+          {scaleSharp.map(note => (
+            <ScaleInputKey
+              key={note}
+              note={note}
+              setNoteCallback={() => setNote(note)}
+            />
+          ))}
+        </View>
+        <View style={style.inputRow}>
+          {scaleFlat.map(note => (
+            <ScaleInputKey
+              key={note}
+              note={note}
+              setNoteCallback={() => setNote(note)}
+            />
+          ))}
+        </View>
       </View>
-      <View style={style.inputRow}>
-        {scaleSharp.map(note => (
-          <Button
-            key={note}
-            title={note}
-            onPress={() =>
-              setNoteValue({
-                type: ScaleInputAction.UPDATE_VALUE,
-                payload: {active: false, inputValue: note, target},
-              })
-            }
-          />
-        ))}
-      </View>
-      <View style={style.inputRow}>
-        {scaleFlat.map(note => (
-          <Button
-            key={note}
-            title={note}
-            onPress={() =>
-              setNoteValue({
-                type: ScaleInputAction.UPDATE_VALUE,
-                payload: {active: false, inputValue: note, target},
-              })
-            }
-          />
-        ))}
-      </View>
-    </View>
-  );
+    );
+  };
 
   useEffect(() => {
     if (isBottomSheet) {
