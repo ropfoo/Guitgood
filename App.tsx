@@ -33,9 +33,7 @@ const App = () => {
 
   return (
     <SafeAreaView>
-      <Layout>
-        <Question />
-      </Layout>
+      <Question />
     </SafeAreaView>
   );
 };

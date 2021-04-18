@@ -8,14 +8,15 @@ import {
 } from '../../Inputs/ScaleInput/ScaleInputReducer';
 
 const viewStyle: ViewStyle = {
-  padding: 10,
+  padding: 12,
   justifyContent: 'center',
   alignItems: 'center',
 };
 
 const textStyle: TextStyle = {
-  fontSize: 20,
+  fontSize: 25,
   fontWeight: 'bold',
+  textAlign: 'center'
 };
 
 interface AnswerOptionProps {
@@ -31,14 +32,13 @@ const AnswerOption: React.FC<AnswerOptionProps> = ({
 }) => {
     const targetNote = noteInput.values[target]
     const getBackground = () => {
-        switch (targetNote.answerState) {
+        switch (targetNote?.answerState) {
             case AnswerState.DEFAULT:
                 return 'lightgrey'
             case AnswerState.ACTIVE:
                 return 'lightgreen'
             case AnswerState.WRONG:
                 return 'coral'
-        
             default:
                 return 'lightgrey'
         }

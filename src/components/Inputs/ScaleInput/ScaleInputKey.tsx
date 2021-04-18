@@ -3,7 +3,7 @@ import {Pressable, StyleSheet, Text, View} from 'react-native';
 
 const style = StyleSheet.create({
   inputKeyText: {
-    fontSize: 22,
+    fontSize: 23,
     color: 'white',
     backgroundColor: 'gray',
     paddingHorizontal: 10,
@@ -13,7 +13,7 @@ const style = StyleSheet.create({
   inputKey: {
     backgroundColor: 'gray',
     borderRadius: 20,
-    margin: 4,
+    margin: 5,
   },
 });
 

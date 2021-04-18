@@ -8,14 +8,15 @@ const style = StyleSheet.create({
   },
   buttonContainer: {
     backgroundColor: 'lightgrey',
-    padding: 10,
     borderRadius: 10,
-    marginBottom: 20,
+    marginBottom: 15,
+    padding: 12.5,
     width: '60%',
   },
   buttonText: {
-    fontSize: 20,
     color: 'blue',
+    fontSize: 21,
+    fontWeight: 'bold',
     textAlign: 'center',
   },
 });

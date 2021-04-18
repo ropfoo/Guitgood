@@ -17,9 +17,19 @@ const style = StyleSheet.create({
     justifyContent: 'space-between',
     height: '100%',
   },
+  questionGrid: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 500,
+  },
+  answerOptions: {
+    marginLeft: 30,
+  },
   rootNote: {
-    fontSize: 100,
+    fontSize: 180,
     fontWeight: 'bold',
+    width: '40%',
   },
 });
 
@@ -41,10 +51,12 @@ const Question: React.FC = () => {
 
   return (
     <View style={style.questionWrapper}>
-      <View>
+      <View style={style.questionGrid}>
         <Text style={style.rootNote}>{currentNote.name}</Text>
-        <AnswerOption showInput={dispatch} target={0} noteInput={noteInput} />
-        <AnswerOption showInput={dispatch} target={1} noteInput={noteInput} />
+        <View style={style.answerOptions}>
+          <AnswerOption showInput={dispatch} target={0} noteInput={noteInput} />
+          <AnswerOption showInput={dispatch} target={1} noteInput={noteInput} />
+        </View>
       </View>
       <View>
         <ProgressButton onSubmit={checkResult} />

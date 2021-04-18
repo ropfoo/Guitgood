@@ -12,8 +12,7 @@ import ScaleInputKey from './ScaleInputKey';
 const style = StyleSheet.create({
   inputContainer: {
     backgroundColor: 'lightgrey',
-    borderRadius: 10,
-    padding: 7,
+    padding: 15,
   },
   inputRow: {
     flexDirection: 'row',
