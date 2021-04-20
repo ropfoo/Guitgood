@@ -1,5 +1,5 @@
 import {ScaleInputValue} from '../components/Inputs/ScaleInput/ScaleInputReducer';
-import {note} from '../components/Quiz/_data/notes';
+import {note, Scale, ScaleType} from '../components/Quiz/_data/notes';
 
 export interface AnswerType {
   answerIndex: number;
@@ -15,9 +15,11 @@ export function useResultCheck(
   selectedNotes: ScaleInputValue[],
   rootNote: note,
 ) {
-  const checkTriad = (): CheckTriadResult => {
+  const checkTriad = (scaleType: Scale): CheckTriadResult => {
     const resulsts = selectedNotes.map(selectedNote =>
-      rootNote.triads.includes(selectedNote.name),
+      scaleType === Scale.MAJOR
+        ? rootNote.triadsMajor.includes(selectedNote.name)
+        : rootNote.triadsMinor.includes(selectedNote.name),
     );
     const answerTypes = resulsts.map(
       (result, index): AnswerType => ({

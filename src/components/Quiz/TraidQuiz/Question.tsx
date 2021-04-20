@@ -1,5 +1,5 @@
 import React, {useReducer, useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Button, StyleSheet, Text, View} from 'react-native';
 import ScaleInput from '../../Inputs/ScaleInput/ScaleInput';
 import {
   initialScaleInputState,
@@ -7,7 +7,7 @@ import {
   scaleInputReducer,
 } from '../../Inputs/ScaleInput/ScaleInputReducer';
 import {useRandomNote} from '../../../hooks/useRandomNote';
-import {notes} from '../_data/notes';
+import {notes, Scale, ScaleType} from '../_data/notes';
 import AnswerOption from './AnswerOption';
 import ProgressButton from './ProgressButtons';
 import {useResultCheck} from '../../../hooks/useResultCheck';
@@ -26,10 +26,18 @@ const style = StyleSheet.create({
   answerOptions: {
     marginLeft: 30,
   },
+  questionContent: {
+    width: '40%',
+    flexDirection: 'column',
+    alignItems: 'center',
+    height: 200,
+  },
   rootNote: {
     fontSize: 180,
     fontWeight: 'bold',
-    width: '40%',
+  },
+  scaleType: {
+    fontSize: 40,
   },
   messsage: {
     color: 'lightgreen',
@@ -41,6 +49,7 @@ const style = StyleSheet.create({
 });
 
 const Question: React.FC = () => {
+  const [scaleType, setScaleType] = useState<ScaleType>(Scale.MAJOR);
   const {currentNote, generateRandomNote} = useRandomNote(notes);
   const [noteInput, dispatch] = useReducer(
     scaleInputReducer,
@@ -56,7 +65,7 @@ const Question: React.FC = () => {
   };
 
   const checkResult = () => {
-    const {answerTypes} = checkTriad();
+    const {answerTypes} = checkTriad(scaleType);
     dispatch({
       type: ScaleInputAction.SHOW_WRONG_ANSWERS,
       payload: {...noteInput, answerTypes},
@@ -73,12 +82,23 @@ const Question: React.FC = () => {
   return (
     <View style={style.questionWrapper}>
       <View style={style.questionGrid}>
-        <Text style={style.rootNote}>{currentNote.name}</Text>
+        <View style={style.questionContent}>
+          <Text style={style.rootNote}>{currentNote.name}</Text>
+          <Text style={style.scaleType}>
+            {scaleType === Scale.MAJOR ? 'major' : 'minor'}
+          </Text>
+        </View>
         <View style={style.answerOptions}>
-          <AnswerOption showInput={dispatch} target={0} noteInput={noteInput} />
+          <AnswerOption
+            rootNote={currentNote}
+            target={0}
+            noteInput={noteInput}
+          />
           <AnswerOption showInput={dispatch} target={1} noteInput={noteInput} />
+          <AnswerOption showInput={dispatch} target={2} noteInput={noteInput} />
         </View>
       </View>
+      <Button title="switch scale" onPress={() => setScaleType(Scale.MINOR)} />
       {showSuccessMsg && <Text style={style.messsage}>Success</Text>}
       <View>
         <ProgressButton disabled={showSuccessMsg} onSubmit={checkResult} />

@@ -7,6 +7,7 @@ import {
   ScaleInputState,
   ScaleInputValue,
 } from '../../Inputs/ScaleInput/ScaleInputReducer';
+import { note } from '../_data/notes';
 
 
 const style = StyleSheet.create({
@@ -31,9 +32,10 @@ const style = StyleSheet.create({
 })
 
 interface AnswerOptionProps {
-  showInput: React.Dispatch<ScaleInputReducer>;
+  showInput?: React.Dispatch<ScaleInputReducer>;
   target: number;
   noteInput: ScaleInputState;
+  rootNote?: note
 }
 
 
@@ -41,6 +43,7 @@ const AnswerOption: React.FC<AnswerOptionProps> = ({
   showInput,
   target,
   noteInput,
+  rootNote
 }) => {
     const targetNote = noteInput.values[target]
     const getBackground = (targetNote: ScaleInputValue) => {
@@ -62,13 +65,13 @@ const AnswerOption: React.FC<AnswerOptionProps> = ({
         backgroundColor:getBackground(targetNote),
       }}
       onPress={() =>
-        showInput({
+       showInput && showInput({
           type: ScaleInputAction.SHOW_INPUT,
           payload: {...noteInput, target},
         })
       }>
       <View style={style.wrapper}>
-        <Text style={style.text}>{noteInput.values[target]?.name}</Text>
+        <Text style={style.text}>{rootNote ? rootNote.name :noteInput.values[target]?.name}</Text>
       </View>
     </Pressable>
   );
