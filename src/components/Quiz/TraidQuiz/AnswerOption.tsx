@@ -56,11 +56,6 @@ const AnswerOption: React.FC<AnswerOptionProps> = ({
         }
     }
 
-    useEffect(()=>{
-        getBackground(noteInput.values[target])
-        console.log(noteInput)
-    }, [noteInput, target])
-
   return (
     <Pressable
       style={{...style.pressable,
