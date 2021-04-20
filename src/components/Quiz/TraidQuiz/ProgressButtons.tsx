@@ -23,12 +23,19 @@ const style = StyleSheet.create({
 
 interface ProgressButtonProps {
   onSubmit: () => void;
+  disabled?: boolean;
 }
 
-const ProgressButton: React.FC<ProgressButtonProps> = ({onSubmit}) => {
+const ProgressButton: React.FC<ProgressButtonProps> = ({
+  onSubmit,
+  disabled = false,
+}) => {
   return (
     <View style={style.wrapper}>
-      <Pressable style={style.buttonContainer} onPress={onSubmit}>
+      <Pressable
+        disabled={disabled}
+        style={style.buttonContainer}
+        onPress={onSubmit}>
         <Text style={style.buttonText}>next</Text>
       </Pressable>
     </View>

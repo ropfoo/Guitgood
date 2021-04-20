@@ -1,23 +1,34 @@
 import React, {useEffect} from 'react';
-import {Pressable, Text, TextStyle, View, ViewStyle} from 'react-native';
+import {Pressable, StyleSheet, Text, TextStyle, View, ViewStyle} from 'react-native';
 import {
     AnswerState,
   ScaleInputAction,
   ScaleInputReducer,
   ScaleInputState,
+  ScaleInputValue,
 } from '../../Inputs/ScaleInput/ScaleInputReducer';
 
-const viewStyle: ViewStyle = {
-  padding: 12,
-  justifyContent: 'center',
-  alignItems: 'center',
-};
 
-const textStyle: TextStyle = {
-  fontSize: 25,
-  fontWeight: 'bold',
-  textAlign: 'center'
-};
+const style = StyleSheet.create({
+    pressable: {
+        marginBottom: 20,
+        borderRadius: 100,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 80,
+        height: 80
+    },
+    wrapper: {
+        padding: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    text:{
+        fontSize: 25,
+        fontWeight: 'bold',
+        textAlign: 'center'
+    }
+})
 
 interface AnswerOptionProps {
   showInput: React.Dispatch<ScaleInputReducer>;
@@ -25,13 +36,14 @@ interface AnswerOptionProps {
   noteInput: ScaleInputState;
 }
 
+
 const AnswerOption: React.FC<AnswerOptionProps> = ({
   showInput,
   target,
   noteInput,
 }) => {
     const targetNote = noteInput.values[target]
-    const getBackground = () => {
+    const getBackground = (targetNote: ScaleInputValue) => {
         switch (targetNote?.answerState) {
             case AnswerState.DEFAULT:
                 return 'lightgrey'
@@ -43,12 +55,16 @@ const AnswerOption: React.FC<AnswerOptionProps> = ({
                 return 'lightgrey'
         }
     }
+
+    useEffect(()=>{
+        getBackground(noteInput.values[target])
+        console.log(noteInput)
+    }, [noteInput, target])
+
   return (
     <Pressable
-      style={{
-        backgroundColor:getBackground(),
-        marginBottom: 5,
-        width: 50,
+      style={{...style.pressable,
+        backgroundColor:getBackground(targetNote),
       }}
       onPress={() =>
         showInput({
@@ -56,8 +72,8 @@ const AnswerOption: React.FC<AnswerOptionProps> = ({
           payload: {...noteInput, target},
         })
       }>
-      <View style={viewStyle}>
-        <Text style={textStyle}>{noteInput.values[target]?.name}</Text>
+      <View style={style.wrapper}>
+        <Text style={style.text}>{noteInput.values[target]?.name}</Text>
       </View>
     </Pressable>
   );

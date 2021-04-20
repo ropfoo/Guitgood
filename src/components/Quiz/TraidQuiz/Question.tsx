@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import React, {useReducer, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import ScaleInput from '../../Inputs/ScaleInput/ScaleInput';
 import {
@@ -21,7 +21,7 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    height: 500,
+    height: 450,
   },
   answerOptions: {
     marginLeft: 30,
@@ -30,6 +30,13 @@ const style = StyleSheet.create({
     fontSize: 180,
     fontWeight: 'bold',
     width: '40%',
+  },
+  messsage: {
+    color: 'lightgreen',
+    fontSize: 25,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    paddingBottom: 15,
   },
 });
 
@@ -40,6 +47,13 @@ const Question: React.FC = () => {
     initialScaleInputState,
   );
   const {checkTriad} = useResultCheck(noteInput.values, currentNote);
+  const [showSuccessMsg, setShowSuccessMsg] = useState(false);
+
+  const reset = () => {
+    setShowSuccessMsg(false);
+    generateRandomNote();
+    dispatch({type: ScaleInputAction.RESET_ANSWERS});
+  };
 
   const checkResult = () => {
     const {answerTypes} = checkTriad();
@@ -51,7 +65,8 @@ const Question: React.FC = () => {
       answerType => answerType.result === true,
     );
     if (allResultsCorrect) {
-      generateRandomNote();
+      setShowSuccessMsg(true);
+      setTimeout(reset, 1000);
     }
   };
 
@@ -64,8 +79,9 @@ const Question: React.FC = () => {
           <AnswerOption showInput={dispatch} target={1} noteInput={noteInput} />
         </View>
       </View>
+      {showSuccessMsg && <Text style={style.messsage}>Success</Text>}
       <View>
-        <ProgressButton onSubmit={checkResult} />
+        <ProgressButton disabled={showSuccessMsg} onSubmit={checkResult} />
         <ScaleInput
           setNoteValue={dispatch}
           target={noteInput.target}

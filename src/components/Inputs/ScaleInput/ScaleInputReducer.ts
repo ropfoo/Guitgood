@@ -41,7 +41,8 @@ export enum ScaleInputAction {
   UPDATE_VALUE,
   SHOW_INPUT,
   HIDE_INPUT,
-  SHOW_WRONG_ANSWERS
+  SHOW_WRONG_ANSWERS,
+  RESET_ANSWERS
 }
 
 export function scaleInputReducer(
@@ -61,6 +62,12 @@ export function scaleInputReducer(
         return {...state, active: true, target: action.payload?.target};
     case ScaleInputAction.HIDE_INPUT:
       return {...state, active: false};
+    case ScaleInputAction.RESET_ANSWERS:
+        state.values.map(value => {
+            value.answerState = AnswerState.DEFAULT,
+            value.name= ''
+        })
+        return {...state}
     case ScaleInputAction.SHOW_WRONG_ANSWERS:
         state.values.forEach((value, index) => {
             const isCorrect = action.payload?.answerTypes?.some(answerType => {
