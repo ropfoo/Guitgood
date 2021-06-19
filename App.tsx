@@ -8,21 +8,17 @@
  * @format
  */
 
-import React, {useState} from 'react';
-import {
-  Button,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React from 'react';
+import {SafeAreaView, StyleSheet, useColorScheme} from 'react-native';
+
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import Layout from './src/components/Layout/Layout';
 import Question from './src/components/Quiz/TraidQuiz/Question';
+import HomeScreen from './src/screens/HomeScreen';
+
+const {Navigator, Screen} = createStackNavigator();
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -32,9 +28,14 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView>
-      <Question />
-    </SafeAreaView>
+    // <SafeAreaView>
+    <NavigationContainer>
+      <Navigator>
+        <Screen name="Home" component={HomeScreen} />
+        <Screen name="Quiz" component={Question} />
+      </Navigator>
+    </NavigationContainer>
+    // </SafeAreaView>
   );
 };
 
