@@ -11,8 +11,8 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7334ECB6C5DAC11605C1D603 /* libPods-Guitgood.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACCE17AD1208FAD94819FF30 /* libPods-Guitgood.a */; };
-		798D3466553A03EACAD96856 /* libPods-Guitgood-GuitgoodTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 272CC6EBD7B656D250B9FA2F /* libPods-Guitgood-GuitgoodTests.a */; };
+		46A0F48BB351601F41837986 /* libPods-Guitgood.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E25F88F34DFCCEF14CFA17 /* libPods-Guitgood.a */; };
+		6C65FBB732CF9F58701F641F /* libPods-Guitgood-GuitgoodTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6130DDC555C2E1326549F8 /* libPods-Guitgood-GuitgoodTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -36,13 +36,13 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Guitgood/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Guitgood/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Guitgood/main.m; sourceTree = "<group>"; };
-		272CC6EBD7B656D250B9FA2F /* libPods-Guitgood-GuitgoodTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Guitgood-GuitgoodTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BBBB055929D6AF489CFEAB6 /* Pods-Guitgood-GuitgoodTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitgood-GuitgoodTests.release.xcconfig"; path = "Target Support Files/Pods-Guitgood-GuitgoodTests/Pods-Guitgood-GuitgoodTests.release.xcconfig"; sourceTree = "<group>"; };
-		556D584684A82C4C1BD3491F /* Pods-Guitgood-GuitgoodTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitgood-GuitgoodTests.debug.xcconfig"; path = "Target Support Files/Pods-Guitgood-GuitgoodTests/Pods-Guitgood-GuitgoodTests.debug.xcconfig"; sourceTree = "<group>"; };
+		21C9BDC35416645AEB4DB4E7 /* Pods-Guitgood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitgood.debug.xcconfig"; path = "Target Support Files/Pods-Guitgood/Pods-Guitgood.debug.xcconfig"; sourceTree = "<group>"; };
+		2823032583635C64B5D677E9 /* Pods-Guitgood-GuitgoodTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitgood-GuitgoodTests.release.xcconfig"; path = "Target Support Files/Pods-Guitgood-GuitgoodTests/Pods-Guitgood-GuitgoodTests.release.xcconfig"; sourceTree = "<group>"; };
+		69E25F88F34DFCCEF14CFA17 /* libPods-Guitgood.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Guitgood.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Guitgood/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9D0A435B1DEC6F5E928CA2AB /* Pods-Guitgood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitgood.debug.xcconfig"; path = "Target Support Files/Pods-Guitgood/Pods-Guitgood.debug.xcconfig"; sourceTree = "<group>"; };
-		AB6E8D6FB9C5B3B0060426B8 /* Pods-Guitgood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitgood.release.xcconfig"; path = "Target Support Files/Pods-Guitgood/Pods-Guitgood.release.xcconfig"; sourceTree = "<group>"; };
-		ACCE17AD1208FAD94819FF30 /* libPods-Guitgood.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Guitgood.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EB0CA5881A1E52119BA4AAC /* Pods-Guitgood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitgood.release.xcconfig"; path = "Target Support Files/Pods-Guitgood/Pods-Guitgood.release.xcconfig"; sourceTree = "<group>"; };
+		AD6130DDC555C2E1326549F8 /* libPods-Guitgood-GuitgoodTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Guitgood-GuitgoodTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3420CECDEB65ED4611214EB /* Pods-Guitgood-GuitgoodTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitgood-GuitgoodTests.debug.xcconfig"; path = "Target Support Files/Pods-Guitgood-GuitgoodTests/Pods-Guitgood-GuitgoodTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				798D3466553A03EACAD96856 /* libPods-Guitgood-GuitgoodTests.a in Frameworks */,
+				6C65FBB732CF9F58701F641F /* libPods-Guitgood-GuitgoodTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7334ECB6C5DAC11605C1D603 /* libPods-Guitgood.a in Frameworks */,
+				46A0F48BB351601F41837986 /* libPods-Guitgood.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,24 +96,12 @@
 			name = Guitgood;
 			sourceTree = "<group>";
 		};
-		29CE8B92E818CE7E7169CB08 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9D0A435B1DEC6F5E928CA2AB /* Pods-Guitgood.debug.xcconfig */,
-				AB6E8D6FB9C5B3B0060426B8 /* Pods-Guitgood.release.xcconfig */,
-				556D584684A82C4C1BD3491F /* Pods-Guitgood-GuitgoodTests.debug.xcconfig */,
-				2BBBB055929D6AF489CFEAB6 /* Pods-Guitgood-GuitgoodTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				ACCE17AD1208FAD94819FF30 /* libPods-Guitgood.a */,
-				272CC6EBD7B656D250B9FA2F /* libPods-Guitgood-GuitgoodTests.a */,
+				69E25F88F34DFCCEF14CFA17 /* libPods-Guitgood.a */,
+				AD6130DDC555C2E1326549F8 /* libPods-Guitgood-GuitgoodTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -133,7 +121,7 @@
 				00E356EF1AD99517003FC87E /* GuitgoodTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				29CE8B92E818CE7E7169CB08 /* Pods */,
+				8510F305BF55B3A31F920658 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -149,6 +137,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8510F305BF55B3A31F920658 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				21C9BDC35416645AEB4DB4E7 /* Pods-Guitgood.debug.xcconfig */,
+				8EB0CA5881A1E52119BA4AAC /* Pods-Guitgood.release.xcconfig */,
+				E3420CECDEB65ED4611214EB /* Pods-Guitgood-GuitgoodTests.debug.xcconfig */,
+				2823032583635C64B5D677E9 /* Pods-Guitgood-GuitgoodTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,12 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "GuitgoodTests" */;
 			buildPhases = (
-				9EB9EB73B050ADBDDA21C81A /* [CP] Check Pods Manifest.lock */,
+				BA4164CE298DC61A480C4E1C /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				E428E4A31859DDDF64C9C1EA /* [CP] Embed Pods Frameworks */,
-				52ACA28F1C0A4EF27797544D /* [CP] Copy Pods Resources */,
+				BDAFFB3D9A354BD5F0FD0E21 /* [CP] Copy Pods Resources */,
+				40E4D76CBB678D5512A34E21 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,14 +177,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Guitgood" */;
 			buildPhases = (
-				ED51191F8BCD4ED02CCE8D9C /* [CP] Check Pods Manifest.lock */,
+				998F0F56F7705A52C28B5A58 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				D1AF2C3F5FCCB714F29C6AD4 /* [CP] Embed Pods Frameworks */,
-				667B965A4824DDE439614987 /* [CP] Copy Pods Resources */,
+				167581F2B18D497435619806 /* [CP] Copy Pods Resources */,
+				7915444D1872623EC98BD741 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,24 +265,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		52ACA28F1C0A4EF27797544D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Guitgood-GuitgoodTests/Pods-Guitgood-GuitgoodTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Guitgood-GuitgoodTests/Pods-Guitgood-GuitgoodTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Guitgood-GuitgoodTests/Pods-Guitgood-GuitgoodTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		667B965A4824DDE439614987 /* [CP] Copy Pods Resources */ = {
+		167581F2B18D497435619806 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -299,7 +282,63 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Guitgood/Pods-Guitgood-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9EB9EB73B050ADBDDA21C81A /* [CP] Check Pods Manifest.lock */ = {
+		40E4D76CBB678D5512A34E21 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Guitgood-GuitgoodTests/Pods-Guitgood-GuitgoodTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Guitgood-GuitgoodTests/Pods-Guitgood-GuitgoodTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Guitgood-GuitgoodTests/Pods-Guitgood-GuitgoodTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7915444D1872623EC98BD741 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Guitgood/Pods-Guitgood-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Guitgood/Pods-Guitgood-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Guitgood/Pods-Guitgood-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		998F0F56F7705A52C28B5A58 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Guitgood-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA4164CE298DC61A480C4E1C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -321,60 +360,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D1AF2C3F5FCCB714F29C6AD4 /* [CP] Embed Pods Frameworks */ = {
+		BDAFFB3D9A354BD5F0FD0E21 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Guitgood/Pods-Guitgood-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Guitgood-GuitgoodTests/Pods-Guitgood-GuitgoodTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Guitgood/Pods-Guitgood-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Guitgood-GuitgoodTests/Pods-Guitgood-GuitgoodTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Guitgood/Pods-Guitgood-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E428E4A31859DDDF64C9C1EA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Guitgood-GuitgoodTests/Pods-Guitgood-GuitgoodTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Guitgood-GuitgoodTests/Pods-Guitgood-GuitgoodTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Guitgood-GuitgoodTests/Pods-Guitgood-GuitgoodTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ED51191F8BCD4ED02CCE8D9C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Guitgood-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Guitgood-GuitgoodTests/Pods-Guitgood-GuitgoodTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -429,7 +429,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 556D584684A82C4C1BD3491F /* Pods-Guitgood-GuitgoodTests.debug.xcconfig */;
+			baseConfigurationReference = E3420CECDEB65ED4611214EB /* Pods-Guitgood-GuitgoodTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -456,7 +456,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2BBBB055929D6AF489CFEAB6 /* Pods-Guitgood-GuitgoodTests.release.xcconfig */;
+			baseConfigurationReference = 2823032583635C64B5D677E9 /* Pods-Guitgood-GuitgoodTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -480,7 +480,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D0A435B1DEC6F5E928CA2AB /* Pods-Guitgood.debug.xcconfig */;
+			baseConfigurationReference = 21C9BDC35416645AEB4DB4E7 /* Pods-Guitgood.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -506,7 +506,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB6E8D6FB9C5B3B0060426B8 /* Pods-Guitgood.release.xcconfig */;
+			baseConfigurationReference = 8EB0CA5881A1E52119BA4AAC /* Pods-Guitgood.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
