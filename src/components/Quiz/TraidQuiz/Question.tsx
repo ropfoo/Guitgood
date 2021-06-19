@@ -1,5 +1,5 @@
 import React, {useReducer, useState} from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {Button, Text, View} from 'react-native';
 import ScaleInput from '../../Inputs/ScaleInput/ScaleInput';
 import {
   initialScaleInputState,
@@ -11,42 +11,7 @@ import {notes, Scale, ScaleType} from '../_data/notes';
 import AnswerOption from './AnswerOption';
 import ProgressButton from './ProgressButtons';
 import {useResultCheck} from '../../../hooks/useResultCheck';
-
-const style = StyleSheet.create({
-  questionWrapper: {
-    justifyContent: 'space-between',
-    height: '100%',
-  },
-  questionGrid: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 450,
-  },
-  answerOptions: {
-    marginLeft: 30,
-  },
-  questionContent: {
-    width: '40%',
-    flexDirection: 'column',
-    alignItems: 'center',
-    height: 200,
-  },
-  rootNote: {
-    fontSize: 180,
-    fontWeight: 'bold',
-  },
-  scaleType: {
-    fontSize: 40,
-  },
-  messsage: {
-    color: 'lightgreen',
-    fontSize: 25,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    paddingBottom: 15,
-  },
-});
+import {style} from './styles/Question.style';
 
 const Question: React.FC = () => {
   const [scaleType, setScaleType] = useState<ScaleType>(Scale.MAJOR);

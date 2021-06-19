@@ -8,18 +8,7 @@ import {
 } from './ScaleInputReducer';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import ScaleInputKey from './ScaleInputKey';
-
-const style = StyleSheet.create({
-  inputContainer: {
-    backgroundColor: 'lightgrey',
-    padding: 15,
-  },
-  inputRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    height: 'auto',
-  },
-});
+import {style} from './styles/ScaleInput.style';
 
 interface ScaleInputProps {
   setNoteValue: React.Dispatch<ScaleInputReducer>;

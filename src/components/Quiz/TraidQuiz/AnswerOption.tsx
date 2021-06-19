@@ -1,77 +1,56 @@
-import React, {useEffect} from 'react';
-import {Pressable, StyleSheet, Text, TextStyle, View, ViewStyle} from 'react-native';
+import React from 'react';
+import {Pressable, Text, View} from 'react-native';
+import {style} from './styles/AnswerOption.style';
 import {
-    AnswerState,
+  AnswerState,
   ScaleInputAction,
   ScaleInputReducer,
   ScaleInputState,
   ScaleInputValue,
 } from '../../Inputs/ScaleInput/ScaleInputReducer';
-import { note } from '../_data/notes';
-
-
-const style = StyleSheet.create({
-    pressable: {
-        marginBottom: 20,
-        borderRadius: 100,
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: 80,
-        height: 80
-    },
-    wrapper: {
-        padding: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    text:{
-        fontSize: 25,
-        fontWeight: 'bold',
-        textAlign: 'center'
-    }
-})
+import {note} from '../_data/notes';
 
 interface AnswerOptionProps {
   showInput?: React.Dispatch<ScaleInputReducer>;
   target: number;
   noteInput: ScaleInputState;
-  rootNote?: note
+  rootNote?: note;
 }
-
 
 const AnswerOption: React.FC<AnswerOptionProps> = ({
   showInput,
   target,
   noteInput,
-  rootNote
+  rootNote,
 }) => {
-    const targetNote = noteInput.values[target]
-    const getBackground = (targetNote: ScaleInputValue) => {
-        switch (targetNote?.answerState) {
-            case AnswerState.DEFAULT:
-                return 'lightgrey'
-            case AnswerState.ACTIVE:
-                return 'lightgreen'
-            case AnswerState.WRONG:
-                return 'coral'
-            default:
-                return 'lightgrey'
-        }
+  const targetNote = noteInput.values[target];
+  const getBackground = (targetNote: ScaleInputValue) => {
+    switch (targetNote?.answerState) {
+      case AnswerState.DEFAULT:
+        return 'lightgrey';
+      case AnswerState.ACTIVE:
+        return 'lightgreen';
+      case AnswerState.WRONG:
+        return 'coral';
+      default:
+        return 'lightgrey';
     }
+  };
 
   return (
     <Pressable
-      style={{...style.pressable,
-        backgroundColor:getBackground(targetNote),
-      }}
+      style={{...style.pressable, backgroundColor: getBackground(targetNote)}}
       onPress={() =>
-       showInput && showInput({
+        showInput &&
+        showInput({
           type: ScaleInputAction.SHOW_INPUT,
           payload: {...noteInput, target},
         })
       }>
       <View style={style.wrapper}>
-        <Text style={style.text}>{rootNote ? rootNote.name :noteInput.values[target]?.name}</Text>
+        <Text style={style.text}>
+          {rootNote ? rootNote.name : noteInput.values[target]?.name}
+        </Text>
       </View>
     </Pressable>
   );
