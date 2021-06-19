@@ -9,7 +9,7 @@ export const style = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    height: 400,
+    height: 370,
   },
   answerOptions: {
     marginLeft: 30,

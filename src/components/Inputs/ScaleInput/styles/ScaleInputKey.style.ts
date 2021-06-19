@@ -2,16 +2,17 @@ import {StyleSheet} from 'react-native';
 
 export const style = StyleSheet.create({
   inputKeyText: {
-    fontSize: 23,
+    fontSize: 18,
     color: 'white',
-    backgroundColor: 'gray',
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    paddingVertical: 10,
+    width: 40,
   },
   inputKey: {
     backgroundColor: 'gray',
-    borderRadius: 20,
-    margin: 5,
+    borderRadius: 30,
+    margin: 3,
   },
 });

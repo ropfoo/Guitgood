@@ -12,7 +12,7 @@ const ScaleInputKey: React.FC<ScaleInputKeyProps> = ({
   setNoteCallback,
 }) => {
   return (
-    <Pressable key={note} onPress={setNoteCallback}>
+    <Pressable key={note} onPress={setNoteCallback} style={style.inputKey}>
       <View style={style.inputKey}>
         <Text style={style.inputKeyText}>{note}</Text>
       </View>

@@ -8,7 +8,7 @@ export const style = StyleSheet.create({
   buttonContainer: {
     backgroundColor: 'lightgrey',
     borderRadius: 10,
-    marginBottom: 15,
+    marginBottom: 30,
     padding: 12.5,
     width: '60%',
   },
