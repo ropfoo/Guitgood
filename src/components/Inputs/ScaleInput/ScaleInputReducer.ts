@@ -23,6 +23,7 @@ export interface ScaleInputPayload {
   inputValue: string;
   target: number;
   answerTypes?: AnswerType[];
+  values?: ScaleInputValue[];
 }
 
 export interface ScaleInputReducer {
@@ -39,6 +40,7 @@ export const initialScaleInputState: ScaleInputState = {
 
 export enum ScaleInputAction {
   UPDATE_VALUE,
+  UPDATE_ROOT_VALUE,
   SHOW_INPUT,
   HIDE_INPUT,
   SHOW_WRONG_ANSWERS,
@@ -60,14 +62,20 @@ export function scaleInputReducer(
       } else {
         return state;
       }
+    case ScaleInputAction.UPDATE_ROOT_VALUE:
+      if (action.payload && action.payload.values)
+        return {...state, values: [...action.payload.values]};
     case ScaleInputAction.SHOW_INPUT:
       if (action.payload)
         return {...state, active: true, target: action.payload?.target};
     case ScaleInputAction.HIDE_INPUT:
       return {...state, active: false};
     case ScaleInputAction.RESET_ANSWERS:
-      state.values.map(value => {
-        (value.answerState = AnswerState.DEFAULT), (value.name = '');
+      state.values.map((value, index) => {
+        if (index > 0) {
+          value.answerState = AnswerState.DEFAULT;
+          value.name = '';
+        }
       });
       return {...state};
     case ScaleInputAction.SHOW_WRONG_ANSWERS:

@@ -1,8 +1,7 @@
-import React, {useReducer, useState} from 'react';
+import React, {useReducer, useState, useEffect} from 'react';
 import {Button, Text, View} from 'react-native';
 import ScaleInput from '../../Inputs/ScaleInput/ScaleInput';
 import {
-  initialScaleInputState,
   ScaleInputAction,
   scaleInputReducer,
 } from '../../Inputs/ScaleInput/ScaleInputReducer';
@@ -16,17 +15,23 @@ import {style} from './styles/Question.style';
 const Question: React.FC = () => {
   const [scaleType, setScaleType] = useState<ScaleType>(Scale.MAJOR);
   const {currentNote, generateRandomNote} = useRandomNote(notes);
-  const [noteInput, dispatch] = useReducer(
-    scaleInputReducer,
-    initialScaleInputState,
-  );
+  const [noteInput, dispatch] = useReducer(scaleInputReducer, {
+    active: false,
+    inputValue: '',
+    target: 1,
+    values: [
+      {answerState: 0, name: currentNote.name},
+      {answerState: 0, name: ''},
+      {answerState: 0, name: ''},
+    ],
+  });
   const {checkTriad} = useResultCheck(noteInput.values, currentNote);
   const [showSuccessMsg, setShowSuccessMsg] = useState(false);
 
   const reset = () => {
     setShowSuccessMsg(false);
-    generateRandomNote();
     dispatch({type: ScaleInputAction.RESET_ANSWERS});
+    generateRandomNote();
   };
 
   const checkResult = () => {
@@ -35,14 +40,29 @@ const Question: React.FC = () => {
       type: ScaleInputAction.SHOW_WRONG_ANSWERS,
       payload: {...noteInput, answerTypes},
     });
-    const allResultsCorrect = answerTypes.every(
-      answerType => answerType.result === true,
-    );
+    const allResultsCorrect = answerTypes.length
+      ? answerTypes.every(answerType => answerType.result === true)
+      : false;
     if (allResultsCorrect) {
       setShowSuccessMsg(true);
       setTimeout(reset, 1000);
     }
   };
+
+  useEffect(() => {
+    dispatch({
+      type: ScaleInputAction.UPDATE_ROOT_VALUE,
+      payload: {
+        ...noteInput,
+        values: noteInput.values.map((value, index) => {
+          if (index === 0) {
+            value.name = currentNote.name;
+          }
+          return value;
+        }),
+      },
+    });
+  }, [currentNote]);
 
   return (
     <View style={style.questionWrapper}>
