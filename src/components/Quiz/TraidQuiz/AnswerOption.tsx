@@ -9,6 +9,8 @@ import {
   ScaleInputValue,
 } from '../../Inputs/ScaleInput/ScaleInputReducer';
 import {note} from '../_data/notes';
+import {useState} from 'react';
+import {useEffect} from 'react';
 
 interface AnswerOptionProps {
   showInput?: React.Dispatch<ScaleInputReducer>;
@@ -39,8 +41,14 @@ const AnswerOption: React.FC<AnswerOptionProps> = ({
 
   return (
     <Pressable
-      style={{...style.pressable, backgroundColor: getBackground(targetNote)}}
+      style={{
+        ...style.pressable,
+        backgroundColor: rootNote ? 'lightgrey' : getBackground(targetNote),
+        borderColor: noteInput.target === target ? 'grey' : 'transparent',
+        borderWidth: 2,
+      }}
       onPress={() =>
+        !rootNote &&
         showInput &&
         showInput({
           type: ScaleInputAction.SHOW_INPUT,
