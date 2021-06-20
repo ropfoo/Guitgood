@@ -1,9 +1,10 @@
 import {StyleSheet} from 'react-native';
+import {Colors} from '../../../../global/colors';
 
 export const style = StyleSheet.create({
   inputKeyText: {
     fontSize: 18,
-    color: 'white',
+    color: Colors.black,
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
@@ -11,7 +12,7 @@ export const style = StyleSheet.create({
     width: 40,
   },
   inputKey: {
-    backgroundColor: 'gray',
+    backgroundColor: Colors.white,
     borderRadius: 30,
     margin: 3,
   },

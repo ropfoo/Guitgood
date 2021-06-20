@@ -9,6 +9,7 @@ import {
   ScaleInputValue,
 } from '../../Inputs/ScaleInput/ScaleInputReducer';
 import {note} from '../_data/notes';
+import {Colors} from '../../../global/colors';
 
 interface AnswerOptionProps {
   showInput?: React.Dispatch<ScaleInputReducer>;
@@ -27,13 +28,13 @@ const AnswerOption: React.FC<AnswerOptionProps> = ({
   const getBackground = (targetNote: ScaleInputValue) => {
     switch (targetNote?.answerState) {
       case AnswerState.DEFAULT:
-        return 'lightgrey';
+        return Colors.lightgrey;
       case AnswerState.ACTIVE:
         return 'lightgreen';
       case AnswerState.WRONG:
         return 'coral';
       default:
-        return 'lightgrey';
+        return Colors.lightgrey;
     }
   };
 
@@ -41,8 +42,11 @@ const AnswerOption: React.FC<AnswerOptionProps> = ({
     <Pressable
       style={{
         ...style.pressable,
-        backgroundColor: rootNote ? 'lightgrey' : getBackground(targetNote),
-        borderColor: noteInput.target === target ? 'grey' : 'transparent',
+        backgroundColor: rootNote
+          ? Colors.lightgrey
+          : getBackground(targetNote),
+        borderColor:
+          noteInput.target === target ? Colors.darkBlue : 'transparent',
         borderWidth: 2,
       }}
       onPress={() =>

@@ -1,13 +1,14 @@
 import {StyleSheet} from 'react-native';
+import {Colors} from '../../../../global/colors';
 
 const paddingRegular = 10;
 
 export const style = StyleSheet.create({
   inputContainer: {
-    backgroundColor: 'lightgrey',
+    backgroundColor: Colors.lightgrey,
     paddingHorizontal: paddingRegular,
-    paddingTop: paddingRegular,
-    paddingBottom: 40,
+    paddingTop: paddingRegular + 7,
+    paddingBottom: 45,
   },
   inputRow: {
     flexDirection: 'row',

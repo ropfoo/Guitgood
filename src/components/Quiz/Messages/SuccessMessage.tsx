@@ -1,5 +1,6 @@
 import React, {useRef, useEffect} from 'react';
 import {Animated, Text} from 'react-native';
+import {Easing} from 'react-native-reanimated';
 import {style} from './styles/SuccessMessage.style';
 
 interface SuccessMessageProps {
@@ -14,12 +15,13 @@ const SuccessMessage: React.FC<SuccessMessageProps> = ({
   onFadeIn,
 }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
-  const duration = 500;
+  const duration = 700;
 
   const fadeIn = () => {
     Animated.timing(fadeAnim, {
       toValue: 2,
       duration,
+      easing: Easing.bounce,
       useNativeDriver: false,
     }).start(onFadeIn);
   };
@@ -27,8 +29,9 @@ const SuccessMessage: React.FC<SuccessMessageProps> = ({
   const fadeOut = () => {
     Animated.timing(fadeAnim, {
       toValue: 0,
-      duration: duration * 0.8,
+      duration: duration * 0.6,
       delay: duration,
+      easing: Easing.linear,
       useNativeDriver: false,
     }).start();
   };

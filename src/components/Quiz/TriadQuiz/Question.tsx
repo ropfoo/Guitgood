@@ -71,7 +71,7 @@ const Question: React.FC = () => {
             {scaleType === Scale.MAJOR ? 'major' : 'minor'}
           </Text>
         </View>
-        <View style={style.answerOptions}>
+        <View>
           <AnswerOption
             rootNote={currentNote}
             target={0}
@@ -81,7 +81,7 @@ const Question: React.FC = () => {
           <AnswerOption showInput={dispatch} target={2} noteInput={noteInput} />
         </View>
       </View>
-      <Button title="switch scale" onPress={() => setScaleType(Scale.MINOR)} />
+      {/* <Button title="switch scale" onPress={() => setScaleType(Scale.MINOR)} /> */}
       <SuccessMessage
         message="Nice!"
         toggle={showSuccessMsg}

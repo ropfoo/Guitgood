@@ -2,13 +2,13 @@ import {StyleSheet} from 'react-native';
 
 export const style = StyleSheet.create({
   messsageWrapper: {
+    alignItems: 'center',
     backgroundColor: 'white',
     borderRadius: 50,
-    position: 'absolute',
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     height: '100%',
+    justifyContent: 'center',
+    position: 'absolute',
     width: '100%',
     zIndex: 100,
   },
@@ -17,6 +17,5 @@ export const style = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
-    paddingBottom: 0,
   },
 });

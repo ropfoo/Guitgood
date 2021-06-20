@@ -1,37 +1,34 @@
 import {StyleSheet} from 'react-native';
+import {Colors} from '../../../../global/colors';
 
 export const style = StyleSheet.create({
   questionWrapper: {
-    justifyContent: 'space-between',
+    backgroundColor: Colors.white,
     height: '100%',
+    justifyContent: 'space-between',
+    width: '100%',
   },
   questionGrid: {
-    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1,
+    flexDirection: 'row',
     height: 370,
-  },
-  answerOptions: {
-    marginLeft: 30,
+    justifyContent: 'space-between',
+    paddingHorizontal: '15%',
+    width: '100%',
   },
   questionContent: {
-    width: '40%',
-    flexDirection: 'column',
     alignItems: 'center',
+    flexDirection: 'column',
     height: 200,
+    justifyContent: 'center',
   },
   rootNote: {
-    fontSize: 180,
+    fontSize: 200,
     fontWeight: 'bold',
   },
   scaleType: {
     fontSize: 40,
-  },
-  messsage: {
-    color: 'lightgreen',
-    fontSize: 25,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    paddingBottom: 15,
+    marginTop: 15,
   },
 });

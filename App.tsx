@@ -14,9 +14,9 @@ import {SafeAreaView, StyleSheet, useColorScheme} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Question from './src/components/Quiz/TriadQuiz/Question';
 import HomeScreen from './src/screens/HomeScreen';
+import {Colors} from './src/global/colors';
 
 const {Navigator, Screen} = createStackNavigator();
 
@@ -24,7 +24,7 @@ const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: isDarkMode ? Colors.black : Colors.white,
   };
 
   return (

@@ -2,17 +2,17 @@ import {StyleSheet} from 'react-native';
 
 export const style = StyleSheet.create({
   pressable: {
-    marginBottom: 20,
-    borderRadius: 100,
     alignItems: 'center',
-    justifyContent: 'center',
-    width: 80,
+    borderRadius: 100,
     height: 80,
+    justifyContent: 'center',
+    marginBottom: 20,
+    width: 80,
   },
   wrapper: {
-    padding: 20,
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
   },
   text: {
     fontSize: 25,
