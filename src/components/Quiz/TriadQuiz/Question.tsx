@@ -6,11 +6,12 @@ import {
   scaleInputReducer,
 } from '../../Inputs/ScaleInput/ScaleInputReducer';
 import {useRandomNote} from '../../../hooks/useRandomNote';
-import {notes, Scale, ScaleType} from '../_data/notes';
-import AnswerOption from './AnswerOption';
-import ProgressButton from './ProgressButtons';
 import {useResultCheck} from '../../../hooks/useResultCheck';
+import {notes, Scale, ScaleType} from '../_data/notes';
+import ProgressButton from './ProgressButtons';
 import {style} from './styles/Question.style';
+import AnswerOption from './AnswerOption';
+import SuccessMessage from '../Messages/SuccessMessage';
 
 const Question: React.FC = () => {
   const [scaleType, setScaleType] = useState<ScaleType>(Scale.MAJOR);
@@ -43,10 +44,7 @@ const Question: React.FC = () => {
     const allResultsCorrect = answerTypes.length
       ? answerTypes.every(answerType => answerType.result === true)
       : false;
-    if (allResultsCorrect) {
-      setShowSuccessMsg(true);
-      setTimeout(reset, 1000);
-    }
+    allResultsCorrect && setShowSuccessMsg(true);
   };
 
   useEffect(() => {
@@ -84,7 +82,11 @@ const Question: React.FC = () => {
         </View>
       </View>
       <Button title="switch scale" onPress={() => setScaleType(Scale.MINOR)} />
-      {showSuccessMsg && <Text style={style.messsage}>Success</Text>}
+      <SuccessMessage
+        message="Nice!"
+        toggle={showSuccessMsg}
+        onFadeIn={reset}
+      />
       <View>
         <ProgressButton disabled={showSuccessMsg} onSubmit={checkResult} />
         <ScaleInput
