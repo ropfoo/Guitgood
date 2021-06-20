@@ -11,6 +11,12 @@ export interface CheckTriadResult {
   answerTypes: AnswerType[];
 }
 
+/**
+ * useResultCheck
+ * @param {ScaleInputValue[]} selectedNotes - note inputs
+ * @param {note} rootNote - root note
+ * @returns
+ */
 export function useResultCheck(
   selectedNotes: ScaleInputValue[],
   rootNote: note,

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {Pressable, Text, View} from 'react-native';
 import {style} from './styles/ProgressButton.style';
 
 interface ProgressButtonProps {

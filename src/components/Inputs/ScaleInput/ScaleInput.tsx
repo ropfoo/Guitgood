@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import {Button, Pressable, StyleSheet, Text, View} from 'react-native';
+import {Button, View} from 'react-native';
 import {scale, scaleFlat, scaleSharp} from './scaleInput.data';
 import {
   //   AnswerState,
