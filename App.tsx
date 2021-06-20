@@ -15,7 +15,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import Question from './src/components/Quiz/TraidQuiz/Question';
+import Question from './src/components/Quiz/TriadQuiz/Question';
 import HomeScreen from './src/screens/HomeScreen';
 
 const {Navigator, Screen} = createStackNavigator();

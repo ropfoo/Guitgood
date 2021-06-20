@@ -9,8 +9,6 @@ import {
   ScaleInputValue,
 } from '../../Inputs/ScaleInput/ScaleInputReducer';
 import {note} from '../_data/notes';
-import {useState} from 'react';
-import {useEffect} from 'react';
 
 interface AnswerOptionProps {
   showInput?: React.Dispatch<ScaleInputReducer>;
