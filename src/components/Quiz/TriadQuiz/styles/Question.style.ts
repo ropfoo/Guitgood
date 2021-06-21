@@ -31,4 +31,11 @@ export const style = StyleSheet.create({
     fontSize: 40,
     marginTop: 15,
   },
+  menuSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+    marginBottom: 30,
+  },
 });

@@ -1,5 +1,5 @@
 import React, {useReducer, useState, useEffect} from 'react';
-import {Button, Text, View} from 'react-native';
+import {Button, Pressable, Text, View} from 'react-native';
 import ScaleInput from '../../Inputs/ScaleInput/ScaleInput';
 import {
   ScaleInputAction,
@@ -12,6 +12,9 @@ import ProgressButton from './ProgressButtons';
 import {style} from './styles/Question.style';
 import AnswerOption from './AnswerOption';
 import SuccessMessage from '../Messages/SuccessMessage';
+import SettingsButton from './SettingsButton';
+import RBSheet from 'react-native-raw-bottom-sheet';
+import {useRef} from 'react';
 
 const Question: React.FC = () => {
   const [scaleType, setScaleType] = useState<ScaleType>(Scale.MAJOR);
@@ -62,6 +65,9 @@ const Question: React.FC = () => {
     });
   }, [currentNote]);
 
+  // Bottom Sheet
+  const settingsSheet = useRef<any>(null);
+
   return (
     <View style={style.questionWrapper}>
       <View style={style.questionGrid}>
@@ -88,13 +94,30 @@ const Question: React.FC = () => {
         onFadeIn={reset}
       />
       <View>
-        <ProgressButton disabled={showSuccessMsg} onSubmit={checkResult} />
+        <View style={style.menuSection}>
+          <SettingsButton callback={() => settingsSheet.current.open()} />
+          <ProgressButton disabled={showSuccessMsg} onSubmit={checkResult} />
+        </View>
         <ScaleInput
           setNoteValue={dispatch}
           target={noteInput.target}
           isActive={noteInput.active}
         />
       </View>
+      <RBSheet
+        ref={settingsSheet}
+        closeOnDragDown={true}
+        closeOnPressMask={true}
+        customStyles={{
+          wrapper: {
+            backgroundColor: 'rgba(0,0,0,0.2)',
+          },
+          draggableIcon: {
+            backgroundColor: '#000',
+          },
+        }}>
+        <Text>Hello Settings</Text>
+      </RBSheet>
     </View>
   );
 };

@@ -9,7 +9,6 @@ export const style = StyleSheet.create({
   buttonContainer: {
     backgroundColor: Colors.darkBlue,
     borderRadius: 50,
-    marginBottom: 30,
     padding: 12.5,
     width: '60%',
   },
