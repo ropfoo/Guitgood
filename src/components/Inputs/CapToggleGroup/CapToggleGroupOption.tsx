@@ -1,7 +1,7 @@
 import React from 'react';
-import {Pressable, Text} from 'react-native';
+import {Pressable, Text, View} from 'react-native';
 import {ToggleOption} from './CapToggleGroup';
-import {style} from './style/CapToggleGroupOption.style';
+import {style, styleActive} from './style/CapToggleGroupOption.style';
 
 interface CapToggleGroupOptionProps {
   option: ToggleOption;
@@ -10,10 +10,13 @@ interface CapToggleGroupOptionProps {
 const CapToggleGroupOption: React.FC<CapToggleGroupOptionProps> = ({
   option,
 }) => {
+  const getStyle = option.isActive ? styleActive : style;
   return (
-    <Pressable>
-      <Text style={option.isActive && style.isActive}>{option.name}</Text>
-    </Pressable>
+    <View style={getStyle.wrapper}>
+      <Pressable style={getStyle.optionContainer} onPress={option.update}>
+        <Text style={getStyle.optionText}>{option.name}</Text>
+      </Pressable>
+    </View>
   );
 };
 

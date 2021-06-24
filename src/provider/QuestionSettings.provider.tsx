@@ -1,7 +1,8 @@
 import React, {useContext} from 'react';
 import {useReducer} from 'react';
-import {Scale} from '../components/Quiz/_data/notes';
+import {Scale, ScaleType} from '../components/Quiz/_data/notes';
 import {
+  QuestionSettingsAction,
   QuestionSettingsReducer,
   questionSettingsReducer,
   QuestionSettingsState,
@@ -14,6 +15,7 @@ interface QuestionSettingsContext {
 
 const initalQuestionSettings: QuestionSettingsState = {
   scaleType: Scale.MAJOR,
+  scaleTypeOptions: [],
 };
 
 const QuestionSettingsContext = React.createContext<QuestionSettingsContext>({
@@ -25,11 +27,30 @@ export const useQuestionSettingsContext = () =>
   useContext(QuestionSettingsContext);
 
 export const QuestionSettingsProvider: React.FC = ({children}) => {
-  const [questionSettings, dispatch] = useReducer(
-    questionSettingsReducer,
-    initalQuestionSettings,
-  );
+  const [questionSettings, dispatch] = useReducer(questionSettingsReducer, {
+    ...initalQuestionSettings,
+    scaleTypeOptions: [
+      {
+        name: 'Major',
+        isActive: true,
+        id: Scale.MAJOR,
+        update: () => updateScaleType(Scale.MAJOR),
+      },
+      {
+        name: 'Minor',
+        isActive: false,
+        id: Scale.MINOR,
+        update: () => updateScaleType(Scale.MINOR),
+      },
+    ],
+  });
 
+  function updateScaleType(type: Scale) {
+    dispatch({
+      type: QuestionSettingsAction.UPDATE_SCALE_TYPE,
+      payload: {scaleType: type},
+    });
+  }
   return (
     <QuestionSettingsContext.Provider value={{questionSettings, dispatch}}>
       {children}

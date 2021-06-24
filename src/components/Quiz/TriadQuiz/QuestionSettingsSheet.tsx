@@ -1,13 +1,9 @@
-import React from 'react';
-import {useState} from 'react';
+import React, {useState} from 'react';
 import {Pressable, Switch, Text} from 'react-native';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import {useQuestionSettingsContext} from '../../../provider/QuestionSettings.provider';
 import {QuestionSettingsAction} from '../../../provider/QuestionSettingsReducer';
-import CapToggleGroup, {
-  ToggleOption,
-} from '../../Inputs/CapToggleGroup/CapToggleGroup';
-import {Scale} from '../_data/notes';
+import CapToggleGroup from '../../Inputs/CapToggleGroup/CapToggleGroup';
 
 interface QuestionSettingsSheetProps {
   refElement: React.MutableRefObject<any>;
@@ -16,19 +12,9 @@ interface QuestionSettingsSheetProps {
 const QuestionSettingsSheet: React.FC<QuestionSettingsSheetProps> = ({
   refElement,
 }) => {
-  const {dispatch} = useQuestionSettingsContext();
+  const {questionSettings, dispatch} = useQuestionSettingsContext();
   const [isEnabled, setIsEnabled] = useState(false);
 
-  const options: ToggleOption[] = [
-    {
-      name: 'option 1',
-      isActive: true,
-    },
-    {
-      name: 'option 2',
-      isActive: false,
-    },
-  ];
   return (
     <RBSheet
       ref={refElement}
@@ -55,8 +41,7 @@ const QuestionSettingsSheet: React.FC<QuestionSettingsSheetProps> = ({
           dispatch &&
             dispatch({type: QuestionSettingsAction.TOGGLE_SCALE_TYPE});
         }}>
-        <Text>click</Text>
-        <CapToggleGroup options={options} />
+        <CapToggleGroup options={questionSettings.scaleTypeOptions} />
       </Pressable>
     </RBSheet>
   );

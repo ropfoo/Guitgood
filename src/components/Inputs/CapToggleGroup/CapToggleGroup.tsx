@@ -1,10 +1,13 @@
 import React from 'react';
 import {View} from 'react-native';
 import CapToggleGroupOption from './CapToggleGroupOption';
+import {style} from './style/CapToggleGroup.style';
 
 export interface ToggleOption {
   name: string;
   isActive: boolean;
+  id: number | string;
+  update: () => void;
 }
 
 interface CapToggleGroupProps {
@@ -13,9 +16,9 @@ interface CapToggleGroupProps {
 
 const CapToggleGroup: React.FC<CapToggleGroupProps> = ({options}) => {
   return (
-    <View>
+    <View style={style.wrapper}>
       {options.map(option => (
-        <CapToggleGroupOption key={option.name} option={option} />
+        <CapToggleGroupOption key={option.id} option={option} />
       ))}
     </View>
   );
