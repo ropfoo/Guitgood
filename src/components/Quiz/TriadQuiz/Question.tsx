@@ -17,7 +17,7 @@ import QuestionSettingsSheet from './QuestionSettingsSheet';
 import {useQuestionSettingsContext} from '../../../provider/QuestionSettings.provider';
 
 const Question: React.FC = () => {
-  const {scaleType} = useQuestionSettingsContext();
+  const {questionSettings} = useQuestionSettingsContext();
   const {currentNote, generateRandomNote} = useRandomNote(notes);
   const [noteInput, dispatch] = useReducer(scaleInputReducer, {
     active: false,
@@ -39,7 +39,7 @@ const Question: React.FC = () => {
   };
 
   const checkResult = () => {
-    const {answerTypes} = checkTriad(scaleType);
+    const {answerTypes} = checkTriad(questionSettings.scaleType);
     dispatch({
       type: ScaleInputAction.SHOW_WRONG_ANSWERS,
       payload: {...noteInput, answerTypes},
@@ -65,10 +65,6 @@ const Question: React.FC = () => {
     });
   }, [currentNote]);
 
-  useEffect(() => {
-    scaleType === Scale.MAJOR ? console.log('major') : console.log('minor');
-  }, [scaleType]);
-
   // Bottom Sheet
   const settingsSheet = useRef<any>(null);
 
@@ -78,7 +74,7 @@ const Question: React.FC = () => {
         <View style={style.questionContent}>
           <Text style={style.rootNote}>{currentNote.name}</Text>
           <Text style={style.scaleType}>
-            {scaleType === Scale.MAJOR ? 'major' : 'minor'}
+            {questionSettings.scaleType === Scale.MAJOR ? 'major' : 'minor'}
           </Text>
         </View>
         <View>

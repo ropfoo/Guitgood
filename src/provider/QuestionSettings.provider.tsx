@@ -1,24 +1,37 @@
-import React, {useState, useContext} from 'react';
-import {Scale, ScaleType} from '../components/Quiz/_data/notes';
+import React, {useContext} from 'react';
+import {useReducer} from 'react';
+import {Scale} from '../components/Quiz/_data/notes';
+import {
+  QuestionSettingsReducer,
+  questionSettingsReducer,
+  QuestionSettingsState,
+} from './QuestionSettingsReducer';
 
 interface QuestionSettingsContext {
-  scaleType: ScaleType;
-  setScaleType: undefined | React.Dispatch<React.SetStateAction<ScaleType>>;
+  questionSettings: QuestionSettingsState;
+  dispatch: undefined | React.Dispatch<QuestionSettingsReducer>;
 }
 
-const QuestionSettingsContext = React.createContext<QuestionSettingsContext>({
+const initalQuestionSettings: QuestionSettingsState = {
   scaleType: Scale.MAJOR,
-  setScaleType: undefined,
+};
+
+const QuestionSettingsContext = React.createContext<QuestionSettingsContext>({
+  questionSettings: initalQuestionSettings,
+  dispatch: undefined,
 });
 
 export const useQuestionSettingsContext = () =>
   useContext(QuestionSettingsContext);
 
 export const QuestionSettingsProvider: React.FC = ({children}) => {
-  const [scaleType, setScaleType] = useState<ScaleType>(Scale.MAJOR);
+  const [questionSettings, dispatch] = useReducer(
+    questionSettingsReducer,
+    initalQuestionSettings,
+  );
 
   return (
-    <QuestionSettingsContext.Provider value={{scaleType, setScaleType}}>
+    <QuestionSettingsContext.Provider value={{questionSettings, dispatch}}>
       {children}
     </QuestionSettingsContext.Provider>
   );
