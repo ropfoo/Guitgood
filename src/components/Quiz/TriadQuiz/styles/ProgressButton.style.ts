@@ -10,7 +10,7 @@ export const style = StyleSheet.create({
     backgroundColor: Colors.darkBlue,
     borderRadius: 50,
     padding: 12.5,
-    width: '60%',
+    width: 150,
   },
   buttonText: {
     color: Colors.white,

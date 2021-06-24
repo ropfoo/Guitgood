@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {Colors} from '../../../../global/colors';
+import {Spacing} from '../../../../global/spacing';
 
 export const style = StyleSheet.create({
   questionWrapper: {
@@ -14,7 +15,7 @@ export const style = StyleSheet.create({
     flexDirection: 'row',
     height: 370,
     justifyContent: 'space-between',
-    paddingHorizontal: '15%',
+    paddingHorizontal: Spacing.quizMargin,
     width: '100%',
   },
   questionContent: {
@@ -32,10 +33,11 @@ export const style = StyleSheet.create({
     marginTop: 15,
   },
   menuSection: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '100%',
     marginBottom: 30,
+    paddingHorizontal: Spacing.quizMargin,
+    width: '100%',
   },
 });
