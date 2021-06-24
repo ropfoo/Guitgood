@@ -1,5 +1,5 @@
-import React, {useReducer, useState, useEffect} from 'react';
-import {Button, Pressable, Text, View} from 'react-native';
+import React, {useReducer, useState, useEffect, useRef} from 'react';
+import {Text, View} from 'react-native';
 import ScaleInput from '../../Inputs/ScaleInput/ScaleInput';
 import {
   ScaleInputAction,
@@ -7,17 +7,17 @@ import {
 } from '../../Inputs/ScaleInput/ScaleInputReducer';
 import {useRandomNote} from '../../../hooks/useRandomNote';
 import {useResultCheck} from '../../../hooks/useResultCheck';
-import {notes, Scale, ScaleType} from '../_data/notes';
+import {notes, Scale} from '../_data/notes';
 import ProgressButton from './ProgressButtons';
 import {style} from './styles/Question.style';
 import AnswerOption from './AnswerOption';
 import SuccessMessage from '../Messages/SuccessMessage';
 import SettingsButton from './SettingsButton';
-import RBSheet from 'react-native-raw-bottom-sheet';
-import {useRef} from 'react';
+import QuestionSettingsSheet from './QuestionSettingsSheet';
+import {useQuestionSettingsContext} from '../../../provider/QuestionSettings.provider';
 
 const Question: React.FC = () => {
-  const [scaleType, setScaleType] = useState<ScaleType>(Scale.MAJOR);
+  const {scaleType} = useQuestionSettingsContext();
   const {currentNote, generateRandomNote} = useRandomNote(notes);
   const [noteInput, dispatch] = useReducer(scaleInputReducer, {
     active: false,
@@ -65,6 +65,10 @@ const Question: React.FC = () => {
     });
   }, [currentNote]);
 
+  useEffect(() => {
+    scaleType === Scale.MAJOR ? console.log('major') : console.log('minor');
+  }, [scaleType]);
+
   // Bottom Sheet
   const settingsSheet = useRef<any>(null);
 
@@ -87,7 +91,6 @@ const Question: React.FC = () => {
           <AnswerOption showInput={dispatch} target={2} noteInput={noteInput} />
         </View>
       </View>
-      {/* <Button title="switch scale" onPress={() => setScaleType(Scale.MINOR)} /> */}
       <SuccessMessage
         message="Nice!"
         toggle={showSuccessMsg}
@@ -104,20 +107,7 @@ const Question: React.FC = () => {
           isActive={noteInput.active}
         />
       </View>
-      <RBSheet
-        ref={settingsSheet}
-        closeOnDragDown={true}
-        closeOnPressMask={true}
-        customStyles={{
-          wrapper: {
-            backgroundColor: 'rgba(0,0,0,0.2)',
-          },
-          draggableIcon: {
-            backgroundColor: '#000',
-          },
-        }}>
-        <Text>Hello Settings</Text>
-      </RBSheet>
+      <QuestionSettingsSheet refElement={settingsSheet} />
     </View>
   );
 };
