@@ -17,8 +17,12 @@ interface CapToggleGroupProps {
 const CapToggleGroup: React.FC<CapToggleGroupProps> = ({options}) => {
   return (
     <View style={style.wrapper}>
-      {options.map(option => (
-        <CapToggleGroupOption key={option.id} option={option} />
+      {options.map((option, index) => (
+        <CapToggleGroupOption
+          customStyle={index !== options.length - 1 && {marginRight: 12}}
+          key={option.id}
+          option={option}
+        />
       ))}
     </View>
   );
