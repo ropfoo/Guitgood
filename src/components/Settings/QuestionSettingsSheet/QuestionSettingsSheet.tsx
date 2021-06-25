@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
+import {useEffect} from 'react';
 import {Switch, View} from 'react-native';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import {useQuestionSettingsContext} from '../../../provider/questionSettings/QuestionSettings.provider';
+import {QuestionSettingsAction} from '../../../provider/questionSettings/QuestionSettingsReducer';
 import CapToggleGroup from '../../Inputs/CapToggleGroup/CapToggleGroup';
 import SettingsSection from '../SettingsSection/SettingsSection';
 import {style, sheetStyle} from './QuestionSettingsSheet.style';
@@ -13,8 +15,19 @@ interface QuestionSettingsSheetProps {
 const QuestionSettingsSheet: React.FC<QuestionSettingsSheetProps> = ({
   refElement,
 }) => {
-  const {questionSettings} = useQuestionSettingsContext();
+  const {
+    questionSettings,
+    dispatchQuestionSettings,
+  } = useQuestionSettingsContext();
   const [isEnabled, setIsEnabled] = useState(false);
+
+  useEffect(() => {
+    dispatchQuestionSettings &&
+      dispatchQuestionSettings({
+        type: QuestionSettingsAction.SET_RANDOM_SCALE,
+        payload: {randomScale: isEnabled},
+      });
+  }, [isEnabled]);
 
   return (
     <RBSheet

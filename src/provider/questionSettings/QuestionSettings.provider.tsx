@@ -10,49 +10,54 @@ import {
 
 interface QuestionSettingsContext {
   questionSettings: QuestionSettingsState;
-  dispatch: undefined | React.Dispatch<QuestionSettingsReducer>;
+  dispatchQuestionSettings: undefined | React.Dispatch<QuestionSettingsReducer>;
 }
 
 const initalQuestionSettings: QuestionSettingsState = {
   scaleType: Scale.MAJOR,
   scaleTypeOptions: [],
+  randomScale: false,
 };
 
 const QuestionSettingsContext = React.createContext<QuestionSettingsContext>({
   questionSettings: initalQuestionSettings,
-  dispatch: undefined,
+  dispatchQuestionSettings: undefined,
 });
 
 export const useQuestionSettingsContext = () =>
   useContext(QuestionSettingsContext);
 
 export const QuestionSettingsProvider: React.FC = ({children}) => {
-  const [questionSettings, dispatch] = useReducer(questionSettingsReducer, {
-    ...initalQuestionSettings,
-    scaleTypeOptions: [
-      {
-        name: 'Major',
-        isActive: true,
-        id: Scale.MAJOR,
-        update: () => updateScaleType(Scale.MAJOR),
-      },
-      {
-        name: 'Minor',
-        isActive: false,
-        id: Scale.MINOR,
-        update: () => updateScaleType(Scale.MINOR),
-      },
-    ],
-  });
+  const [questionSettings, dispatchQuestionSettings] = useReducer(
+    questionSettingsReducer,
+    {
+      ...initalQuestionSettings,
+      scaleTypeOptions: [
+        {
+          name: 'Major',
+          isActive: true,
+          id: Scale.MAJOR,
+          update: () => updateScaleType(Scale.MAJOR),
+        },
+        {
+          name: 'Minor',
+          isActive: false,
+          id: Scale.MINOR,
+          update: () => updateScaleType(Scale.MINOR),
+        },
+      ],
+    },
+  );
 
   function updateScaleType(type: Scale) {
-    dispatch({
+    dispatchQuestionSettings({
       type: QuestionSettingsAction.UPDATE_SCALE_TYPE,
       payload: {scaleType: type},
     });
   }
   return (
-    <QuestionSettingsContext.Provider value={{questionSettings, dispatch}}>
+    <QuestionSettingsContext.Provider
+      value={{questionSettings, dispatchQuestionSettings}}>
       {children}
     </QuestionSettingsContext.Provider>
   );

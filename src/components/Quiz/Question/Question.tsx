@@ -15,9 +15,13 @@ import SuccessMessage from '../Messages/SuccessMessage/SuccessMessage';
 import SettingsButton from '../../Settings/SettingsButton/SettingsButton';
 import QuestionSettingsSheet from '../../Settings/QuestionSettingsSheet/QuestionSettingsSheet';
 import {useQuestionSettingsContext} from '../../../provider/questionSettings/QuestionSettings.provider';
+import {QuestionSettingsAction} from '../../../provider/questionSettings/QuestionSettingsReducer';
 
 const Question: React.FC = () => {
-  const {questionSettings} = useQuestionSettingsContext();
+  const {
+    questionSettings,
+    dispatchQuestionSettings,
+  } = useQuestionSettingsContext();
   const {currentNote, generateRandomNote} = useRandomNote(notes);
   const [noteInput, dispatch] = useReducer(scaleInputReducer, {
     active: false,
@@ -50,6 +54,9 @@ const Question: React.FC = () => {
     allResultsCorrect && setShowSuccessMsg(true);
   };
 
+  const getRandomScale = () =>
+    Math.floor(Math.random() * 2) > 0 ? Scale.MINOR : Scale.MAJOR;
+
   useEffect(() => {
     dispatch({
       type: ScaleInputAction.UPDATE_ROOT_VALUE,
@@ -63,7 +70,14 @@ const Question: React.FC = () => {
         }),
       },
     });
-  }, [currentNote]);
+
+    if (questionSettings.randomScale && dispatchQuestionSettings) {
+      dispatchQuestionSettings({
+        type: QuestionSettingsAction.UPDATE_SCALE_TYPE,
+        payload: {scaleType: getRandomScale()},
+      });
+    }
+  }, [currentNote, questionSettings.randomScale]);
 
   // Bottom Sheet
   const settingsSheet = useRef<any>(null);

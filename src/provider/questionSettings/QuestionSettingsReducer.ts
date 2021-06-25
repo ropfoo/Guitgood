@@ -4,6 +4,7 @@ import {Scale, ScaleType} from '../../components/Quiz/_data/notes';
 export interface QuestionSettingsState {
   scaleType: ScaleType;
   scaleTypeOptions: ToggleOption[];
+  randomScale: boolean;
 }
 
 export interface QuestionSettingsReducer {
@@ -12,12 +13,14 @@ export interface QuestionSettingsReducer {
 }
 
 interface QuestionSettingsPayload {
-  scaleType: ScaleType;
+  scaleType?: ScaleType;
+  randomScale?: boolean;
 }
 
 export enum QuestionSettingsAction {
   UPDATE_SCALE_TYPE,
   TOGGLE_SCALE_TYPE,
+  SET_RANDOM_SCALE,
 }
 
 export function questionSettingsReducer(
@@ -26,13 +29,18 @@ export function questionSettingsReducer(
 ): QuestionSettingsState {
   switch (action.type) {
     case QuestionSettingsAction.UPDATE_SCALE_TYPE:
-      if (action.payload) {
+      if (action.payload && typeof action.payload.scaleType !== 'undefined') {
         updateScaleToggleGroup(state, action.payload.scaleType);
         return {...state, scaleType: action.payload.scaleType};
       }
+
     case QuestionSettingsAction.TOGGLE_SCALE_TYPE:
       const newScaleType = !!state.scaleType ? Scale.MAJOR : Scale.MINOR;
       return {...state, scaleType: newScaleType};
+
+    case QuestionSettingsAction.SET_RANDOM_SCALE:
+      if (action.payload && typeof action.payload.randomScale === 'boolean')
+        return {...state, randomScale: action.payload.randomScale};
 
     default:
       return state;
