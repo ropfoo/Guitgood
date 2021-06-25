@@ -11,7 +11,8 @@ export const style = StyleSheet.create({
     width: 100,
   },
   optionText: {
-    fontSize: 16,
+    color: Colors.grey,
+    fontSize: 18,
     padding: 10,
     textAlign: 'center',
   },
@@ -26,5 +27,6 @@ export const styleActive = StyleSheet.create({
   optionText: {
     ...style.optionText,
     color: Colors.white,
+    fontWeight: 'bold',
   },
 });

@@ -1,19 +1,17 @@
 import React from 'react';
 import {Text, View} from 'react-native';
+import {style} from './SettingsSection.style';
 
 interface SettingsSectionProps {
   title: string;
+  children: React.ReactNode;
 }
 
-const SettingsSection: React.FC<SettingsSectionProps> = ({title}) => {
+const SettingsSection: React.FC<SettingsSectionProps> = ({title, children}) => {
   return (
-    <View>
-      <View>
-        <Text>{title}</Text>
-      </View>
-      <View>
-        <Text></Text>
-      </View>
+    <View style={style.container}>
+      <Text style={style.title}>{title}</Text>
+      <View>{children}</View>
     </View>
   );
 };
