@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import {useEffect} from 'react';
-import {Switch, View} from 'react-native';
+import React from 'react';
+import {View} from 'react-native';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import {useQuestionSettingsContext} from '../../../provider/questionSettings/QuestionSettings.provider';
 import {QuestionSettingsAction} from '../../../provider/questionSettings/QuestionSettingsReducer';
 import CapToggleGroup from '../../Inputs/CapToggleGroup/CapToggleGroup';
+import LabledSwitch from '../../Inputs/LabledSwitch/LabledSwitch';
 import SettingsSection from '../SettingsSection/SettingsSection';
 import {style, sheetStyle} from './QuestionSettingsSheet.style';
 
@@ -19,15 +19,6 @@ const QuestionSettingsSheet: React.FC<QuestionSettingsSheetProps> = ({
     questionSettings,
     dispatchQuestionSettings,
   } = useQuestionSettingsContext();
-  const [isEnabled, setIsEnabled] = useState(false);
-
-  useEffect(() => {
-    dispatchQuestionSettings &&
-      dispatchQuestionSettings({
-        type: QuestionSettingsAction.SET_RANDOM_SCALE,
-        payload: {randomScale: isEnabled},
-      });
-  }, [isEnabled]);
 
   return (
     <RBSheet
@@ -38,12 +29,15 @@ const QuestionSettingsSheet: React.FC<QuestionSettingsSheetProps> = ({
       <View style={style.inner}>
         <SettingsSection title="Scale">
           <CapToggleGroup options={questionSettings.scaleTypeOptions} />
-          <Switch
-            trackColor={{false: '#767577', true: '#81b0ff'}}
-            thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-            ios_backgroundColor="#3e3e3e"
-            onValueChange={() => setIsEnabled(enabled => !enabled)}
-            value={isEnabled}
+          <LabledSwitch
+            label="Random"
+            toggleEvent={(enable: boolean) =>
+              dispatchQuestionSettings &&
+              dispatchQuestionSettings({
+                type: QuestionSettingsAction.SET_RANDOM_SCALE,
+                payload: {randomScale: enable},
+              })
+            }
           />
         </SettingsSection>
       </View>
