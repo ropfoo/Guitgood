@@ -1,6 +1,6 @@
 import React from 'react';
 import {Pressable, Text} from 'react-native';
-import {style} from './styles/SettingsButton.style';
+import {style} from './SettingsButton.style';
 
 interface SettingsButtonProps {
   callback: () => void;

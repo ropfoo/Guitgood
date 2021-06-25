@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Colors} from '../../../../global/colors';
+import {Colors} from '../../../global/colors';
 
 const scale = 50;
 

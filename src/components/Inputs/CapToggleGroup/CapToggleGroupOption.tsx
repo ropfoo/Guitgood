@@ -1,7 +1,7 @@
 import React from 'react';
 import {Pressable, Text, View} from 'react-native';
 import {ToggleOption} from './CapToggleGroup';
-import {style, styleActive} from './style/CapToggleGroupOption.style';
+import {style, styleActive} from './CapToggleGroupOption.style';
 
 interface CapToggleGroupOptionProps {
   option: ToggleOption;

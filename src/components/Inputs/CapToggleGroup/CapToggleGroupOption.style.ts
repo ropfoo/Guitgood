@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Colors} from '../../../../global/colors';
+import {Colors} from '../../../global/colors';
 
 export const style = StyleSheet.create({
   wrapper: {
@@ -8,7 +8,7 @@ export const style = StyleSheet.create({
   optionContainer: {
     backgroundColor: Colors.lightgrey,
     borderRadius: 50,
-    width: 150,
+    width: 100,
   },
   optionText: {
     fontSize: 16,

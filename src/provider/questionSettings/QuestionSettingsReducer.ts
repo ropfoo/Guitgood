@@ -1,5 +1,5 @@
-import {ToggleOption} from '../components/Inputs/CapToggleGroup/CapToggleGroup';
-import {Scale, ScaleType} from '../components/Quiz/_data/notes';
+import {ToggleOption} from '../../components/Inputs/CapToggleGroup/CapToggleGroup';
+import {Scale, ScaleType} from '../../components/Quiz/_data/notes';
 
 export interface QuestionSettingsState {
   scaleType: ScaleType;

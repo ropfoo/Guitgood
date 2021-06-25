@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {useReducer} from 'react';
-import {Scale, ScaleType} from '../components/Quiz/_data/notes';
+import {Scale} from '../../components/Quiz/_data/notes';
 import {
   QuestionSettingsAction,
   QuestionSettingsReducer,

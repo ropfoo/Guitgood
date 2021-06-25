@@ -11,10 +11,10 @@ import {notes, Scale} from '../_data/notes';
 import ProgressButton from './ProgressButtons';
 import {style} from './styles/Question.style';
 import AnswerOption from './AnswerOption';
-import SuccessMessage from '../Messages/SuccessMessage';
-import SettingsButton from './SettingsButton';
-import QuestionSettingsSheet from './QuestionSettingsSheet';
-import {useQuestionSettingsContext} from '../../../provider/QuestionSettings.provider';
+import SuccessMessage from '../Messages/SuccessMessage/SuccessMessage';
+import SettingsButton from '../../Settings/SettingsButton/SettingsButton';
+import QuestionSettingsSheet from '../../Settings/QuestionSettingsSheet/QuestionSettingsSheet';
+import {useQuestionSettingsContext} from '../../../provider/questionSettings/QuestionSettings.provider';
 
 const Question: React.FC = () => {
   const {questionSettings} = useQuestionSettingsContext();

@@ -1,11 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {Button, View} from 'react-native';
 import {scale, scaleFlat, scaleSharp} from './scaleInput.data';
-import {
-  //   AnswerState,
-  ScaleInputAction,
-  ScaleInputReducer,
-} from './ScaleInputReducer';
+import {ScaleInputAction, ScaleInputReducer} from './ScaleInputReducer';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import ScaleInputKey from './ScaleInputKey';
 import {style} from './styles/ScaleInput.style';

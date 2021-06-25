@@ -14,7 +14,7 @@ import {SafeAreaView, StyleSheet, useColorScheme} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import Quiz from './src/components/Quiz/TriadQuiz/Quiz';
+import Quiz from './src/components/Quiz/Question/Quiz';
 import HomeScreen from './src/screens/HomeScreen';
 import {Colors} from './src/global/colors';
 

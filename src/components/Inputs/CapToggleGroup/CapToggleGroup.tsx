@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import CapToggleGroupOption from './CapToggleGroupOption';
-import {style} from './style/CapToggleGroup.style';
+import {style} from './CapToggleGroup.style';
 
 export interface ToggleOption {
   name: string;

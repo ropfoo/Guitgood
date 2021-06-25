@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Pressable, Switch, Text} from 'react-native';
 import RBSheet from 'react-native-raw-bottom-sheet';
-import {useQuestionSettingsContext} from '../../../provider/QuestionSettings.provider';
-import {QuestionSettingsAction} from '../../../provider/QuestionSettingsReducer';
+import {useQuestionSettingsContext} from '../../../provider/questionSettings/QuestionSettings.provider';
+import {QuestionSettingsAction} from '../../../provider/questionSettings/QuestionSettingsReducer';
 import CapToggleGroup from '../../Inputs/CapToggleGroup/CapToggleGroup';
 
 interface QuestionSettingsSheetProps {

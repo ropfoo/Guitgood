@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from 'react';
 import {Animated, Text} from 'react-native';
 import {Easing} from 'react-native-reanimated';
-import {style} from './styles/SuccessMessage.style';
+import {style} from './SuccessMessage.style';
 
 interface SuccessMessageProps {
   message: string;
