@@ -9,7 +9,7 @@ import {useRandomNote} from '../../../hooks/useRandomNote';
 import {useResultCheck} from '../../../hooks/useResultCheck';
 import {notes, Scale} from '../_data/notes';
 import ProgressButton from './ProgressButtons';
-import {style} from './styles/Question.style';
+import * as S from './styles/Question.style';
 import AnswerOption from './AnswerOption';
 import SuccessMessage from '../Messages/SuccessMessage/SuccessMessage';
 import SettingsButton from '../../Settings/SettingsButton/SettingsButton';
@@ -83,14 +83,14 @@ const Question: React.FC = () => {
   const settingsSheet = useRef<any>(null);
 
   return (
-    <View style={style.questionWrapper}>
-      <View style={style.questionGrid}>
-        <View style={style.questionContent}>
-          <Text style={style.rootNote}>{currentNote.name}</Text>
-          <Text style={style.scaleType}>
+    <S.QuestionWrapper>
+      <S.QuestionGrid>
+        <S.QuestionContent>
+          <S.RootNote>{currentNote.name}</S.RootNote>
+          <S.ScaleType>
             {questionSettings.scaleType === Scale.MAJOR ? 'major' : 'minor'}
-          </Text>
-        </View>
+          </S.ScaleType>
+        </S.QuestionContent>
         <View>
           <AnswerOption
             rootNote={currentNote}
@@ -100,17 +100,17 @@ const Question: React.FC = () => {
           <AnswerOption showInput={dispatch} target={1} noteInput={noteInput} />
           <AnswerOption showInput={dispatch} target={2} noteInput={noteInput} />
         </View>
-      </View>
+      </S.QuestionGrid>
       <SuccessMessage
         message="Nice!"
         toggle={showSuccessMsg}
         onFadeIn={reset}
       />
       <View>
-        <View style={style.menuSection}>
+        <S.MenuSection>
           <SettingsButton callback={() => settingsSheet.current.open()} />
           <ProgressButton disabled={showSuccessMsg} onSubmit={checkResult} />
-        </View>
+        </S.MenuSection>
         <ScaleInput
           setNoteValue={dispatch}
           target={noteInput.target}
@@ -118,7 +118,7 @@ const Question: React.FC = () => {
         />
       </View>
       <QuestionSettingsSheet refElement={settingsSheet} />
-    </View>
+    </S.QuestionWrapper>
   );
 };
 

@@ -1,21 +1,15 @@
-import {StyleSheet} from 'react-native';
+import styled from '@emotion/native';
 import {Colors} from '../../../global/colors';
 
-const scale = 50;
+const scale = '50px';
 
-export const style = StyleSheet.create({
-  wrapper: {
-    alignItems: 'center',
-    backgroundColor: Colors.black,
-    padding: 10,
-    borderRadius: 50,
-    width: scale,
-    height: scale,
-    justifyContent: 'center',
-  },
-  inner: {
-    color: Colors.white,
-    fontSize: 20,
-    flex: 1,
-  },
-});
+export const SettingsButton = styled.Pressable`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  width: ${scale};
+  height: ${scale};
+  padding: 10px;
+  background-color: ${Colors.black};
+`;
